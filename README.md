@@ -179,18 +179,6 @@ ACL2 will run its internal automated theorem prover, verify every proof from fir
 
 ### 3. Interactive Execution & Verification Examples
 
-- **Verify Newton's First Law of Motion (Inertia)**:
-  ```lisp
-  (thm (implies (and (rationalp mass)
-                     (not (equal mass 0))
-                     (rationalp v1)
-                     (rationalp v2)
-                     (rationalp dt)
-                     (not (equal dt 0))
-                     (equal (force-from-momentum-change mass v1 v2 dt) 0))
-                (equal v1 v2)))
-  ```
-
 - **Verify Unitary Norm Preservation in Grover/Givens Discrete Quantum Walk**:
   ```lisp
   (thm (implies (and (grover-state-p st)
