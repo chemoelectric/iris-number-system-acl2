@@ -174,7 +174,7 @@ ACL2 will run its internal automated theorem prover, verify every proof from fir
 
 ### 2. Include the Certified Book
 ```lisp
-(include-book "public/acl2/iris_number_system")
+(include-book "iris_number_system")
 ```
 
 ### 3. Interactive Execution & Verification Examples
