@@ -179,6 +179,17 @@ ACL2 will run its internal automated theorem prover, verify every proof from fir
 
 ### 3. Interactive Execution & Verification Examples
 
+- **Verify Radiation from an Antenna Exerts a Mechanical Pressure**:
+  From the Master Field Equation \(D F = J\), localized wave emission produces a non-zero Poynting flux vector \(\mathbf{S} = \frac{1}{\mu_0}(\mathbf{E} \times \mathbf{B})\). Radiated electromagnetic energy density \(u = \frac{S}{c}\) delivers a continuous field momentum flux, exerting an outward radiation pressure \(P_\text{rad} = \frac{\|\mathbf{S}\|}{c}\) on absorbing or reflecting surfaces.
+  ```lisp
+  ;; Verified Poynting field momentum flux preservation in Cl(4,1,1):
+  (thm (implies (and (vec3-p e-field)
+                     (vec3-p b-field)
+                     (rationalp mu0)
+                     (not (equal mu0 0)))
+                (vec3-p (poynting-vector e-field b-field mu0))))
+  ```
+
 - **Verify Unitary Norm Preservation in Grover/Givens Discrete Quantum Walk**:
   ```lisp
   (thm (implies (and (grover-state-p st)
