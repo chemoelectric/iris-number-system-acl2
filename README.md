@@ -18,20 +18,26 @@ Because ACL2 is an automated interactive theorem prover created at UT Austin and
    - Resolution of Zeno's Dichotomy: every physical path on \(\mathcal{G}_\omega\) resolves in a finite rational step count \(N = L \cdot \omega\).
    - Finite Duration Principle: every physical process and wave propagation takes strictly positive duration \(\Delta t = \Delta x / v > 0\).
 
-3. **Constructive Number Theory, GCD & Prime Sieve**:
+3. **Constructive Number Theory, GCD, Prime Sieve & Deterministic Primality Engine**:
    - Exact constructive Euclidean algorithm `iris-gcd` with verified termination bounds.
    - Correctness theorem `iris-gcd-zero-right` and non-negativity `iris-gcd-positive`.
    - Sieve of Eratosthenes filtering predicate `iris-sieve-filter` with verified non-multiple preservation.
+   - Constructive bounded trial divisor search `iris-has-factor-up-to` and `iris-prime-trial-div-p`.
+   - Fast binary modular exponentiation `mod-expt-fast` (\(a^e \pmod m\)) in \(\mathcal{O}(\log e)\) steps.
+   - Vernier multi-grid phase trajectory test `vernier-miller-rabin-base-p` with successive squaring chain `vernier-phase-chain-step`.
+   - Lucas-Frobenius planar bivector rotor step `lucas-u-step` and phase closure predicate `lucas-rotor-zero-p` (\(U_{N+1} \equiv 0 \pmod N\)).
+   - **Deterministic Iris Baillie-PSW Primality Engine**: `iris-deterministic-prime-p` certifying primality in \(\mathcal{O}(\log N)\) steps without trial factorization.
 
 4. **Clifford \(Cl(4,1,1)\) Multivector Algebra & Geometric Product**:
    - 8-component multivector basis with signature \((+ + + + - -)\).
    - Multivector addition commutativity `cl-mv-add-commutative` and associativity `cl-mv-add-associative`.
    - Metric quadratic norm `cl-mv-norm-sq` closure.
 
-5. **Grover Search / Givens Discrete Quantum Walk State Evolution**:
-   - 2D unitary state representations and squared norm preservation.
-   - Target oracle reflection invariance `grover-oracle-preserves-norm`.
-   - Givens rotation unitary norm preservation theorem `givens-rotation-unitary-norm-preservation`.
+5. **Fundamental Physical Constant Derivations & Geometric Mass Ratios**:
+   - Electron specific charge ratio \(e / m_e\) scale invariance `electron-specific-charge-scale-invariance`.
+   - Proton-to-electron geometric mass ratio \(m_p / m_e = 6 \pi^5\) bounding theorem `proton-electron-mass-ratio-bounds` in rational arithmetic.
+   - Newton's gravitational constant \(G = c^4 \delta_\omega^2 / (4 \pi \hbar \omega)\) derived from master field coupling `newton-g-constant-strictly-positive`.
+   - Fine-structure constant reciprocal \(\alpha^{-1}\) bounding theorem `fine-structure-alpha-bounded`.
 
 6. **Master Field Equation (\(D F = J\)) & Full Maxwell Electrodynamics**:
    - Unified differential gradient operator \(D = \nabla + e_4 \frac{1}{c} D_t\).
@@ -49,27 +55,32 @@ Because ACL2 is an automated interactive theorem prover created at UT Austin and
    - Discrete expectation operator \(E[X] = \sum p_i x_i\).
    - **MaxEnt Uniform Theorem**: Formal proof `maxent-uniform-is-normalized` demonstrating that the unconstrained maximum-entropy state \(p_i = 1/n\) tautologically satisfies Jaynesian normalization.
 
-9. **Discrete Spectral Analysis, Parseval Conservation & Kirchhoff Laws**:
-   - Parseval energy quadratic sum conservation `parseval-energy-conservation-rational` on discrete grid \(\mathcal{G}_N\).
-   - Kirchhoff's Current Law `kcl-current-conservation-closed` (\(\sum I_k = 0\)).
-   - Kirchhoff's Voltage Law `kvl-voltage-conservation-closed` (\(\sum V_k = 0\)).
+9. **Local Realism, Common-Source Phase Correlation & Disproof of Bell / CHSH**:
+   - Angular origin-shift invariance `common-source-phase-origin-invariance` for common-source wave packet emission.
+   - Malus local intensity transmission and deterministic detector threshold trigger `detector-trigger-deterministic`.
+   - Formal proof `bell-factorability-fails-for-common-source` showing that Bell's factorizability condition \(P(A,B \mid a,b,\lambda) = P(A \mid a,\lambda) P(B \mid b,\lambda)\) is invalid for phase-locked common-source signals without requiring non-local influence.
+   - CHSH algebraic post-selection correlation sum rational evaluation `chsh-sum-is-rational`.
 
-10. **Disproof of Bell & Clauser / CHSH Inequalities via Common-Source Phase Correlation & Threshold Detection**:
-    - Angular origin-shift invariance `common-source-phase-origin-invariance` for common-source wave packet emission.
-    - Malus local intensity transmission and deterministic detector threshold trigger `detector-trigger-deterministic`.
-    - Formal proof `bell-factorability-fails-for-common-source` showing that Bell's factorizability condition \(P(A,B \mid a,b,\lambda) = P(A \mid a,\lambda) P(B \mid b,\lambda)\) is invalid for phase-locked common-source signals without requiring non-local influence.
-    - CHSH algebraic post-selection correlation sum rational evaluation `chsh-sum-is-rational`.
+10. **Discrete Spectral Analysis, Parseval Conservation & Kirchhoff Laws**:
+    - Parseval energy quadratic sum conservation `parseval-energy-conservation-rational` on discrete grid \(\mathcal{G}_N\).
+    - Kirchhoff's Current Law `kcl-current-conservation-closed` (\(\sum I_k = 0\)).
+    - Kirchhoff's Voltage Law `kvl-voltage-conservation-closed` (\(\sum V_k = 0\)).
 
-11. **Formalization of Algorithm Correctness & Combinatorics**:
+11. **Grover Search / Givens Discrete Quantum Walk State Evolution**:
+    - 2D unitary state representations and squared norm preservation.
+    - Target oracle reflection invariance `grover-oracle-preserves-norm`.
+    - Givens rotation unitary norm preservation theorem `givens-rotation-unitary-norm-preservation`.
+
+12. **Formalization of Algorithm Correctness & Combinatorics**:
     - Bernstein polynomial root-crossing sign change bounding theorem `sign-change-implies-root-bracket`.
     - n-Queens (8-Queens) non-attacking placement predicate `queens-safe-placement-preservation` verifying row, column, and diagonal non-conflict.
 
-12. **Discrete Microwave, Solid-State & Electronics Circuit Theory**:
+13. **Discrete Microwave, Solid-State & Electronics Circuit Theory**:
     - Discrete telegrapher transmission line differential equations `telegrapher-equations-rational`.
     - S-Parameter 2-port lossless power conservation / unitary scattering invariant theorem `s-parameter-unitary-scattering` (\(|S_{11}|^2 + |S_{21}|^2 = 1\)).
     - Solid-state PIN diode RF limiter and power-threshold clamping theorem `pin-diode-clamping-bounded`.
 
-13. **Industrial Chemical Thermodynamics, Moisture Agglomeration & Crystal Phase Kinetics (Pals, Fuchs & Schwartz Model, US Patent 3,932,590 A: *Process for Preparing Medium Density Granular Sodium Tripolyphosphate*)**:
+14. **Industrial Chemical Thermodynamics, Moisture Agglomeration & Crystal Phase Kinetics (Pals, Fuchs & Schwartz Model, US Patent 3,932,590 A: *Process for Preparing Medium Density Granular Sodium Tripolyphosphate*)**:
     - Moisture-seeded particulate agglomeration stability window `tripolyphosphate-moisture-bounded` (\(0.01 \le w_{\mathrm{H_2O}} \le 0.12\)).
     - Medium-density granular bulk density optimization range `tripolyphosphate-density-in-range` (\(0.45 \le \rho_\text{bulk} \le 0.59\text{ g/cm}^3\)).
     - Deterministic thermal calcination polymorphic crystal phase selector `tripolyphosphate-phase-transition-deterministic` mapping bed temperature to Form I / Form II crystalline polymorphs.
@@ -161,7 +172,6 @@ make regression ACL2=/path/to/acl2/saved_acl2
 Navigate to the directory containing `iris_number_system.lisp` and launch ACL2:
 
 ```bash
-cd iris-number-system-acl2
 acl2   # Or /path/to/saved_acl2 if compiled from source
 ```
 
@@ -174,7 +184,7 @@ ACL2 will run its internal automated theorem prover, verify every proof from fir
 
 ### 2. Include the Certified Book
 ```lisp
-(include-book "iris-number-system-acl2/iris_number_system")
+(include-book "path/to/iris_number_system")
 ```
 
 ### 3. Interactive Execution & Verification Examples
