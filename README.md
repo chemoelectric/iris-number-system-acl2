@@ -161,7 +161,7 @@ make regression ACL2=/path/to/acl2/saved_acl2
 Navigate to the directory containing `iris_number_system.lisp` and launch ACL2:
 
 ```bash
-cd public/acl2
+cd iris-number-system-acl2
 acl2   # Or /path/to/saved_acl2 if compiled from source
 ```
 
@@ -174,7 +174,7 @@ ACL2 will run its internal automated theorem prover, verify every proof from fir
 
 ### 2. Include the Certified Book
 ```lisp
-(include-book "iris_number_system")
+(include-book "iris-number-system-acl2/iris_number_system")
 ```
 
 ### 3. Interactive Execution & Verification Examples
